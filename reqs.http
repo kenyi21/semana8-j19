@@ -1,2 +1,51 @@
 
-   GET https://kenyi21-didactic-rotary-phone-9prv96j9qj92xqgp-8080.preview.app.github.dev/
+  @server = https://kenyi21-didactic-rotary-phone-9prv96j9qj92xqgp-8080.preview.app.github.dev
+
+   ###
+
+GET {{server}}/
+###
+GET {{server}}/cursos
+###
+POST {{server}}/cursos
+Content-Type: application/json
+
+{"nombre": "compiladores 2 ","creditos": 5}
+###
+GET {{server}}/cursos/1
+###
+PATCH {{server}}/cursos/2
+Content-Type: application/json
+
+{"nombre":"Lenguajes de programacion"}
+
+###
+GET {{server}}/cursos?size=2page=0
+###
+
+GET {{server}}/cursos?size=2page=0&sort=creditos,desc
+###
+GET {{server}}/cursos?size=2page=0&sort=creditos,desc
+####
+GET {{server}}/cursos/search/findByNombre?nombre=Algoritmos
+
+#####
+
+GET {{server}}/carreras
+###
+POST {{server}}/carreras
+Content-Type: application/json
+
+{"nombre": "Marketing"}
+
+###
+GET {{server}}/carreras/2/cursos
+###
+
+GET {{server}}/carreras/1/cursos
+
+###
+GET {{server}}/cursos/4/carrera
+
+
+

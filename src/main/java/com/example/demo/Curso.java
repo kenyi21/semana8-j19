@@ -1,14 +1,17 @@
 package com.example.demo;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "Curso")
+@Table(name = "curso")
 public class Curso {
 
     @Id
@@ -17,6 +20,10 @@ public class Curso {
     private String nombre;
     private Integer creditos;
 
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_carrera")    
+    private Carrera carrera;
 
     public Integer getId() {
         return id;
@@ -35,6 +42,13 @@ public class Curso {
     }
     public void setCreditos(Integer creditos) {
         this.creditos = creditos;
+    }
+    public Carrera getCarrera() {
+        return carrera;
+    }
+    public void setCarrera(Carrera carrera) {
+        this.carrera = carrera;
     };    
+    
 
 }
